@@ -1,0 +1,7 @@
+node_modules
+dist
+firstServer/node_modules
+firstServer/.env
+client/node_modules
+client/.env
+.env
