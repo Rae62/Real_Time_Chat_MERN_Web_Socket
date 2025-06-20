@@ -3,8 +3,8 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "server": "nodemon Back/src/index.cjs",
-    "start": "node Back/src/index.cjs",
+    "server": "nodemon Back/src/index.js",
+    "start": "node Back/src/index.js",
     "build": "npm install && npm install --prefix Front && npm run build --prefix Front"
   },
   "repository": {
