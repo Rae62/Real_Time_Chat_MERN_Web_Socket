@@ -6,6 +6,7 @@ import { fileURLToPath } from "url";
 
 const __filename = fileURLToPath(import.meta.url);
 const __DIRNAME = path.dirname(__filename);
+const rootDir = path.resolve(__DIRNAME, "../../");
 
 import cors from "cors";
 
@@ -20,7 +21,7 @@ dotenv.config();
 app.use(express.json({ limit: "10mb" }));
 app.use(cookieParser());
 
-app.use(express.static(path.join(__DIRNAME, "/Front/dist")));
+app.use(express.static(path.join(rootDir, "Front", "dist")));
 
 app.use(
   cors({
@@ -30,7 +31,7 @@ app.use(
 );
 
 app.get(/(.*)/, (req, res) => {
-  res.sendFile(path.join(__DIRNAME, "Front", "dist", "index.html"));
+  res.sendFile(path.join(rootDir, "Front", "dist", "index.html"));
 });
 
 const PORT = process.env.PORT;
