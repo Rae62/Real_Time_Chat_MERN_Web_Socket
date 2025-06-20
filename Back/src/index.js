@@ -30,15 +30,16 @@ app.use(
   })
 );
 
-app.get(/(.*)/, (req, res) => {
-  res.sendFile(path.join(rootDir, "Front", "dist", "index.html"));
-});
-
 const PORT = process.env.PORT;
 
 app.use("/api/auth", authRoutes);
 app.use("/api/message", messageRoutes);
 app.use("/api/friend", friendRoutes);
+
+// Catch-all: serve frontend (must be last)
+app.get(/(.*)/, (req, res) => {
+  res.sendFile(path.join(rootDir, "Front", "dist", "index.html"));
+});
 
 serverHttp.listen(PORT, () => {
   connectDB();
