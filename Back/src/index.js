@@ -1,9 +1,11 @@
 import express from "express";
 import dotenv from "dotenv";
 import cookieParser from "cookie-parser";
-const path = require("path");
+import path from "path";
+import { fileURLToPath } from "url";
 
-const __DIRNAME = path.resolve();
+const __filename = fileURLToPath(import.meta.url);
+const __DIRNAME = path.dirname(__filename);
 
 import cors from "cors";
 
